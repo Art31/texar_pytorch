@@ -83,9 +83,9 @@ case ${encoder} in
 esac
 # TODO(zhiting): Truncate vocab when encoder==raw
 
-# python ${TF}/utils/preprocess.py -i ${out}/data \
-#     --src ${src_language}.${encoder} \
-#     --tgt ${tgt_language}.${encoder} \
-#     --save_data processed. \
-#     --max_seq_length=${max_seq_length} \
-#     --pre_encoding=${encoder}
+python ${TF}/utils/preprocess.py -i ${out}/data \
+    --src ${src_language}.${encoder} \
+    --tgt ${tgt_language}.${encoder} \
+    --save_data processed. \
+    --max_seq_length=${max_seq_length} \
+    --pre_encoding=${encoder}
