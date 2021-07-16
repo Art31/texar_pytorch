@@ -6,10 +6,10 @@ import texar.torch as tx
 
 random_seed = 1234
 
-beam_width = 5
+beam_width = 3
 
 length_penalty = 0.6
-hidden_dim = 512
+hidden_dim = 256
 
 emb = {
     "name": "lookup_table",
@@ -47,13 +47,13 @@ loss_label_confidence = 0.9
 opt = {
     "optimizer": {
         "type": "Adam",
-        "kwargs": {"beta1": 0.9, "beta2": 0.997, "epsilon": 1e-9},
+        "kwargs": {"beta1": 0.9, "beta2": 0.98, "epsilon": 1e-9},
     }
 }
 
 lr_config = {
-    "learning_rate_schedule": "constant.linear_warmup.rsqrt_decay.rsqrt_depth",
+    "learning_rate_schedule": "static", # "constant.linear_warmup.rsqrt_decay.rsqrt_depth",
     "lr_constant": 2 * (hidden_dim ** -0.5),
-    "static_lr": 1e-3,
-    "warmup_steps": 16000,
+    "static_lr": 1e-4,
+    "warmup_steps": 25000,
 }

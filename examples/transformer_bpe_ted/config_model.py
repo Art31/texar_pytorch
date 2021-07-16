@@ -52,6 +52,8 @@ opt = {
 }
 
 lr_config = {
+    "learning_rate_schedule": "static", # "constant.linear_warmup.rsqrt_decay.rsqrt_depth",
+    "lr_constant": 2 * (hidden_dim ** -0.5),
     "static_lr": 1e-4,
     "warmup_steps": 25000,
 }
