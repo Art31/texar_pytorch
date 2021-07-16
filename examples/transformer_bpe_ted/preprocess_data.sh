@@ -29,7 +29,7 @@ encoder=$1
 src_language=$2
 tgt_language=$3
 vocab_size=${4:-32000}
-max_seq_length=${5:-70}
+max_seq_length=${5:-1200}
 
 # update these variables
 data=${TF}"/data/${src_language}_${tgt_language}"
@@ -83,7 +83,7 @@ case ${encoder} in
 esac
 # TODO(zhiting): Truncate vocab when encoder==raw
 
-python ${TF}/utils/preprocess.py -i ${out}/data \
+python3 ${TF}/utils/preprocess.py -i ${out}/data \
     --src ${src_language}.${encoder} \
     --tgt ${tgt_language}.${encoder} \
     --save_data processed. \

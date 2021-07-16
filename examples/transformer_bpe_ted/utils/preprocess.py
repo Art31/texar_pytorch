@@ -154,7 +154,7 @@ def get_preprocess_args():
     return config
 
 
-def main() -> None:
+def main():
     args = get_preprocess_args()
 
     print(json.dumps(args.__dict__, indent=4))
@@ -175,7 +175,7 @@ def main() -> None:
     # Train Dataset
     source_data, source_npy = make_dataset(source_path, w2id, args.tok)
     target_data, target_npy = make_dataset(target_path, w2id, args.tok)
-    assert len(source_data) == len(target_data)
+    assert len(source_data) == len(target_data), f"src len {len(source_data)} != tgt len {len(target_data)}"
 
     train_data = [
         (s, t)
