@@ -154,7 +154,7 @@ def get_preprocess_args():
     return config
 
 
-def main() -> None:
+def main():
     args = get_preprocess_args()
 
     print(json.dumps(args.__dict__, indent=4))

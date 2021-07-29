@@ -83,7 +83,7 @@ case ${encoder} in
 esac
 # TODO(zhiting): Truncate vocab when encoder==raw
 
-python ${TF}/utils/preprocess.py -i ${out}/data \
+python3 ${TF}/utils/preprocess.py -i ${out}/data \
     --src ${src_language}.${encoder} \
     --tgt ${tgt_language}.${encoder} \
     --save_data processed. \
